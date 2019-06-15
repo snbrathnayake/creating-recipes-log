@@ -1,0 +1,132 @@
+<div *ngIf="recipe" class="container">
+  <h1 class="my-5">{{ recipe.title }}</h1>
+
+  <div class="row d-flex justify-content-between">
+    <div class="recipe_rating">
+      <i class="fa fa-star active" aria-hidden="true"></i>
+      <i class="fa fa-star active" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class=""> &nbsp; Feedback Review</i>
+    </div>
+    <!-- <div class="story_share">social-media</div> -->
+    <!-- <div class="recipe-votes">
+      <div class="row d-flex justify-content-around">
+        <span>2</span>
+        <button type="button" class="btn btn-outline-secondary btn-sm">LIKE</button>
+      </div>
+    </div> -->
+  </div>
+  <div class="card bg-default text-white">
+    <img class="card-img" [src]="recipe.image_url" [alt]="recipe.title">
+    <div class="card-img-overlay content">
+      <h5 class="card-title">{{ recipe.title }}</h5>
+      <p class="card-text">{{ recipe.description }}</p>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-12 briefcase">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="badge-inf">category</span>{{ recipe.category }}</li>
+        <li class="list-group-item"><span class="badge-inf">chef</span> {{ recipe.chef }}</li>
+        <li class="list-group-item"><span class="badge-inf">restaurant</span> {{ recipe.restaurant }}</li>
+        <li class="list-group-item"><span class="badge-inf">imageURL</span> {{ recipe.image_url }}</li>
+        <li class="list-group-item"><span class="badge-inf">created</span> {{ recipe.create_at | date:'medium' }}</li>
+        <li class="list-group-item"><span class="badge-inf">Vote Of Reviewer</span>
+          <span class="badge badge-info" style="font-size: 16px">{{ numOfVotes}}</span> &nbsp; 
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">Ingredients Of {{recipe.title}}
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            {{ getIngredients }}
+          </div>
+        </div>
+        <!-- <div class="card-footer text-muted text-center">
+          <button type="button" class="btn btn-outline-secondary btn-sm">Make Update</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">How to Make {{recipe.title}}</div>
+        <div class="card-body">
+          <div class="card-text">
+            {{ recipe.process }}
+          </div>
+        </div>
+        <!-- <div class="card-footer text-muted text-center">
+          <button type="button" class="btn btn-outline-secondary btn-sm">Make Update</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row my-5 mx-1 d-flex justify-content-start feedshared">
+    <button type="button" class="btn btn-outline-info btn-sm" (click)="updateVote(1)">up icon</button>
+    <button type="button" class="btn btn-outline-warning btn-sm" (click)="updateVote(-1)">down icon</button>
+    <div><p class="my-1">Please give your feedback in here.!</p></div>
+  </div>
+  <section class="recipe-editor">
+    <div *ngIf="ready; else noEdit" class="row">
+      <div class="table-responsive-sm col-12">
+        <table class="table" style="width: 100%">
+          <thead class="thead-dark">
+            <tr>
+              <th width="5%" scope="col">[*]</th>
+              <th width="10%" scope="col">Name</th>
+              <th width="80%" scope="col">Contents</th>
+              <!-- <th scope="col">chef</th>
+              <th scope="col">restaurant</th>
+              <th scope="col">image_url</th>
+              <th scope="col">description</th>
+              <th scope="col">ingredients</th>
+              <th scope="col">process</th>
+              <th scope="col">action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+              <td>category</td>
+              <td>Chicken</td>
+              <!-- <th scope="row">[*]</th>
+              <td>Snacks</td>
+              <td>Plum and Cherry Roasted Chicken</td>
+              <td>Devesh - Lord Of The Drinks Meadown</td>
+              <td>180 Degrees, Radisson, Mumbai</td>
+              <td>Https://C.Ndtvimg.Com/2019-04/G2d92opo_chicken-Bao_625x300_18_April_19.Jpg?Downsize=650:400&Output-Quality=70&Output-Format=Webp</td>
+              <td>With Easter just around the corner, we have got you covered on what to prepare for the brunch over the weekend with family and friends. This recipe for steamed chicken bao with a delectable filling of chicken mince, served with flavourful green pepper sauce, is just the perfect one to prepare at home</td>
+              <td>7 gms dry yeast 150 gms chicken mince</td>
+              <td>Mix together all-purpose white flour, sugar and salt, Take another bowl with 330 ml of warm water, put dry yeast. Wait for 10 minutes then add the mixture of flour and knead until smooth</td>
+              <td> <button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></td> -->
+            </tr>
+            <tr>
+              <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+              <td>title</td>
+              <td>Plum and Cherry Roasted Chicken</td>
+            </tr>
+
+            <tr>
+              <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+              <td>Image URL</td>
+              <td>
+                Https://C.Ndtvimg.Com/2019-04/G2d92opo_chicken-Bao_625x300_18_April_19.Jpg?Downsize=650:400&Output-Quality=70&Output-Format=Webp
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #noEdit>
+    <h5>you can't edit the recipe information </h5>
+  </ng-template>

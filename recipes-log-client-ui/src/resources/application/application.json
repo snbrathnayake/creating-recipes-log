@@ -1,0 +1,8 @@
+{
+    "api": {
+      "url": "http://localhost:3001"
+    },
+    "apiVersion": "v1",
+    "useVersioning": false
+  }
+  

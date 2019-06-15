@@ -1,0 +1,31 @@
+<div class="container">
+  <div *ngIf="ready; else spinner" class="view-recipes">
+    <div class="row d-flex justify-content-start mt-5 mx-auto">
+      <form [formGroup]="Form" style="width: 100%">
+        <div class="input-group mb-5">
+          <select class="custom-select" id="recipeList" formControlName="recipeList" [ngModel]="selectedRecipe"
+            (ngModelChange)="onChange($event)">
+            <option value="default">default</option>
+            <option [value]="category" *ngFor="let category of categories">{{category}}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <div class="row d-flex justify-content-center mb-2 mx-auto">
+      <strong>{{ selectedRecipe }}</strong>
+    </div>
+
+    <div class="row d-flex justify-content-start mx-auto">
+      <ng-container *ngFor="let recipe of recipes">
+        <view-recipe (recipeMoreClicked)="recipeDetail(recipe)" [recipe]="recipe">
+        </view-recipe>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #spinner>
+  <spinner></spinner>
+</ng-template>

@@ -1,0 +1,48 @@
+.recipe_rating {
+    margin-left: 15px;
+    padding: 5px 0px 15px 0px;
+    .fa-star {
+        font-size: 24px;
+        color: #eeeeee;
+        padding-left: 10px;
+        &.active {
+            color: #77a83a;
+        }
+    }
+}
+
+.card {
+    .content {
+        position: relative;
+        background: black;
+        opacity: 0.7;
+        height: 10rem;
+        margin-top: -158px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
+
+}
+
+.briefcase {
+    text-transform: capitalize;
+    font-size: 14px;
+
+    .badge-inf {
+        text-transform: capitalize;
+        padding: 5px 5px;
+        color: #17a2b8;
+        margin-right: 1px;
+        font-weight: 600;
+    }
+}
+
+.feedshared {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    button {
+        margin-right: 8px;
+    }
+}
+
+.recipe-editor {
+    background: #f4f4f4;
+}

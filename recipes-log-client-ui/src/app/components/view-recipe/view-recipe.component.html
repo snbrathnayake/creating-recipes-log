@@ -1,0 +1,24 @@
+<div *ngIf="ready" class="col-9 col-md-6 col-lg-3 my-3 view-recipe">
+  <div class="card">
+    <img class="card-img-top" src="{{ recipe.image_url}}" alt="{{ recipe.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ recipeTitle }}</h5>
+      <p class="card-text"> {{ recipeDecription }}</p>
+      <h6>restaurant : {{ recipe.restaurant }}</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">category : {{ recipe.category }}</li>
+      <li class="list-group-item">chef : {{ recipe.chef }}</li>
+      <li class="list-group-item">created : {{ recipe.create_at | date:'medium' }}</li>
+      <li class="list-group-item">
+        <div class="d-flex justify-content-start view-stars">
+          <button class="btn btn-outline-secondary" (click)="recipeMoreClicked.emit()">Show More</button>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

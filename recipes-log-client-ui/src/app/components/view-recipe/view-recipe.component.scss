@@ -1,0 +1,24 @@
+.view-recipe {
+    text-transform: capitalize;
+
+    .card {
+        width: 21rem;
+        min-height: 40rem;
+        max-height: 40rem;
+    }
+
+    .card-text,
+    li {
+        font-size: 14px;
+    }
+
+}
+
+.view-stars {
+    i {
+        font-size: 1.5rem;
+        color: #d5d5d5;
+        align-content: flex-start;
+        padding: 0.4rem 0.4rem 0rem 1rem;
+    }
+}

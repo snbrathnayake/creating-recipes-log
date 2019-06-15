@@ -1,0 +1,13 @@
+<div *ngIf="ready; else spinner" style="height: 100%">
+  <nav-bar></nav-bar>
+  <router-outlet></router-outlet>
+  <ng-container>
+    <div *ngIf="version" style="position:fixed; bottom: 0; right: 4px;font-size: 12px; color: #ccc">
+      {{application.apiURL}} &nbsp; {{version}}
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #spinner>
+ <spinner></spinner>
+</ng-template>

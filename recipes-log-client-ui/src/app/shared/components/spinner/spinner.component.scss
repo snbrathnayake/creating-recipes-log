@@ -1,0 +1,18 @@
+.spinner-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background:transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loading-spinner {
+        background: transparent;
+        text-transform: capitalize;
+        font-style: italic;
+        color: #cccccc;
+    }
+}
